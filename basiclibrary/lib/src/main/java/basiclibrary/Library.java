@@ -3,8 +3,82 @@
  */
 package basiclibrary;
 
+import java.util.Arrays;
+
 public class Library {
+    public static void main(String[] arg){
+        int rollCount = 6;
+        //roll(rollCount);
+        System.out.println(Arrays.toString(roll(rollCount)));
+
+        int[] example = {1,2,4,3,5,3};
+        containsDuplicate(example);
+
+        //avgOfArray(example);
+        System.out.println(avgOfArray(example));
+
+        int[][] weeklyMonthTemperatures = {
+                {66, 64, 58, 65, 71, 57, 60},
+                {57, 65, 65, 70, 72, 65, 51},
+                {55, 54, 60, 53, 59, 57, 61},
+                {65, 56, 55, 52, 55, 62, 57}
+        };
+
+        double value = minAvgOfMatrix(weeklyMonthTemperatures);
+        System.out.println(value);
+    }
+
+
     public boolean someLibraryMethod() {
         return true;
     }
+
+    public static int[] roll(int num){
+        int[] rolls = new int[num];
+        for (int i = 0; i < num; i++){
+            rolls[i] = (int) (Math.ceil(Math.random()*6));
+            System.out.println(rolls[i]);
+        }
+        return rolls;
+    }
+
+    public static boolean containsDuplicate(int[] array){
+        boolean result = false;
+        int count;
+        for (int el : array){
+            count = 0;
+            for (int r : array){
+                if (r == el) {
+                    count++;
+                    System.out.println(count);
+                }
+            }
+            if (count > 1){
+                result = true;
+                System.out.println("true");
+                break;
+            }
+        }
+        return result;
+    }
+
+    public static double avgOfArray (int [] array){
+        int sum = 0;
+        for (int el : array) {
+            sum += el;
+        }
+        return sum/array.length;
+    }
+
+    public static double minAvgOfMatrix (int[][] matrix){
+        double minAvg = avgOfArray(matrix[0]);
+        for (int[] el : matrix){
+            double currentAverage = avgOfArray(el);
+            if (currentAverage < minAvg){
+                minAvg = currentAverage;
+            }
+        }
+        return minAvg;
+    }
+
 }
