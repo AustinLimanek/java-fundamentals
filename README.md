@@ -12,7 +12,7 @@ Takes in two arguments. Argument one is a `String` and argument two is an `int`.
 
 ### flipNHeads
 
-Takes in one argument. Argument is an `int`. The output is a `String`. In addition, the method prints a `String` for the result of every coin flip. This method completes a bernoulli trial until a success of n in a row. The `flipNHeads` uses the `Math.randow()` built in Java method.
+Takes in one argument. Argument is an `int`. The output is a `String`. In addition, the method prints a `String` for the result of every coin flip. This method completes a bernoulli trial until a success of n in a row. The `flipNHeads` uses the `Math.random()` built in Java method.
 
 ### clock
 
