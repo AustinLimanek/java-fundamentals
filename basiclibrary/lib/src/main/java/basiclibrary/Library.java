@@ -115,7 +115,7 @@ public class Library {
         return update;
     }
 
-    public static void weatherSummary (int[][] array){
+    public static int[] weatherSummary (int[][] array){
         HashSet<Integer> tempSeen = new HashSet<>();
         int min = array[0][0];
         int max = min;
@@ -131,12 +131,14 @@ public class Library {
         for (int i = min; i < max; i++){
             if (!tempSeen.contains(i)) System.out.println("Never saw temperature: " + i);
         }
+        int[] spread = {min, max};
+        return spread;
     }
 
     public static String tally (List<String> list){
         HashMap<String,Integer> mapResult = new HashMap<>();
-        String win = "Null";
-        int check = 0;
+        String win = "No one";
+        int check = 1;
         for ( String el : list ){
             if(!mapResult.containsKey(el)){
                 mapResult.put(el, 1);
