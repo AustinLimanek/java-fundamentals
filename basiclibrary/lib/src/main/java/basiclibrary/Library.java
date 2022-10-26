@@ -26,6 +26,10 @@ public class Library {
 
         double value = minAvgOfMatrix(weeklyMonthTemperatures);
         System.out.println(value);
+
+        int[] ary = {1,2,3,4};
+        int n = 7;
+        System.out.println(Arrays.toString(newElementInMidArray(ary, n)));
     }
 
 
@@ -81,4 +85,17 @@ public class Library {
         return minAvg;
     }
 
+    public static int[] newElementInMidArray (int[] array, int num){
+        int[] update = new int[array.length+1];
+        double mid1 = (double) array.length / 2;
+        int mid = (int) (Math.round(mid1));
+        for ( int i = 0; i < mid; i++){
+            update[i] = array[i];
+        }
+        update[mid] = num;
+        for ( int j = mid + 1; j < update.length; j++){
+            update[j] = array[j-1];
+        }
+        return update;
+    }
 }
