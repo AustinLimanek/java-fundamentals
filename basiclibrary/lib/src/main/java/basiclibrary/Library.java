@@ -3,7 +3,7 @@
  */
 package basiclibrary;
 
-import java.util.Arrays;
+import java.util.*;
 
 public class Library {
     public static void main(String[] arg){
@@ -30,6 +30,22 @@ public class Library {
         int[] ary = {1,2,3,4};
         int n = 7;
         System.out.println(Arrays.toString(newElementInMidArray(ary, n)));
+        weatherSummary(weeklyMonthTemperatures);
+
+        List<String> votes = new ArrayList<>();
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Bush");
+        votes.add("Shrub");
+        votes.add("Hedge");
+        votes.add("Shrub");
+        votes.add("Bush");
+        votes.add("Hedge");
+        votes.add("Bush");
+        votes.size();
+
+        String winner = tally(votes);
+        System.out.println(winner + " received the most votes!");
     }
 
 
@@ -97,5 +113,44 @@ public class Library {
             update[j] = array[j-1];
         }
         return update;
+    }
+
+    public static int[] weatherSummary (int[][] array){
+        HashSet<Integer> tempSeen = new HashSet<>();
+        int min = array[0][0];
+        int max = min;
+        for (int[] el : array){
+            for (int r : el){
+                if ( r < min) min = r;
+                if ( r > max) max = r;
+                tempSeen.add(r);
+            }
+        }
+        System.out.println("High: " + max);
+        System.out.println("Min: " + min);
+        for (int i = min; i < max; i++){
+            if (!tempSeen.contains(i)) System.out.println("Never saw temperature: " + i);
+        }
+        int[] spread = {min, max};
+        return spread;
+    }
+
+    public static String tally (List<String> list){
+        HashMap<String,Integer> mapResult = new HashMap<>();
+        String win = "No one";
+        int check = 1;
+        for ( String el : list ){
+            if(!mapResult.containsKey(el)){
+                mapResult.put(el, 1);
+            }
+            else{
+                mapResult.put(el, mapResult.get(el) + 1);
+            }
+            if(mapResult.get(el) > check ){
+                check = mapResult.get(el);
+                win = el;
+            }
+        }
+        return win;
     }
 }
