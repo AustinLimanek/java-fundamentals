@@ -4,11 +4,39 @@
 package linter;
 
 import org.junit.jupiter.api.Test;
+
+import java.io.IOException;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class AppTest {
     @Test void appHasAGreeting() {
         App classUnderTest = new App();
         assertNotNull(classUnderTest.getGreeting(), "app should have a greeting");
+    }
+
+    @Test void checkLinter() throws IOException {
+        App classUnderTest = new App();
+        Path file1 = Paths.get("src/main/resources/gates.js");
+        int errorCount1 = 46;
+        assertEquals(errorCount1, classUnderTest.countErrorAndPrint(file1));
+
+        Path file2 = Paths.get("src/test/resources/trial.js");
+        int errorCount2 = 0;
+        assertEquals(errorCount2, classUnderTest.countErrorAndPrint(file2));
+
+        Path file3 = Paths.get("src/test/resources/few.js");
+        int errorCount3 = 1;
+        assertEquals(errorCount3, classUnderTest.countErrorAndPrint(file3));
+
+        Path file4 = Paths.get("src/test/resources/some.js");
+        int errorCount4 = 3;
+        assertEquals(errorCount4, classUnderTest.countErrorAndPrint(file4));
+
+        Path file5 = Paths.get("src/test/resources/empty.js");
+        int errorCount5 = 0;
+        assertEquals(errorCount5, classUnderTest.countErrorAndPrint(file5));
     }
 }
