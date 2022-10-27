@@ -35,3 +35,11 @@ Calculates the numerical average of an array of the form `int[]`. The output is 
 ### minAvgOfMatrix
 
 Calculates the minimum average from an `int[][]`, which is an array of `int[]`. This function uses `avgOfArray` to calculate the averages. There is no size restriction on either the matrix or the elements of the matrix.
+
+### weatherSummary
+
+Finds the min and max an `int[][]` and returns an `int[]` containing those values. The function also prints out the temperatures that were not included in the input matrix that are between the min and max temperature.
+
+### tally
+
+Finds the candidate with the greatest number of votes. Input `List<String>`, while the output is an `int`. The keys must be the appropriate case for the function to work appropriately. In addition, spelling is important.
