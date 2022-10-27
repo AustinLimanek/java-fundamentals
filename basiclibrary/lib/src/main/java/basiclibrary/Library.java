@@ -46,6 +46,9 @@ public class Library {
 
         String winner = tally(votes);
         System.out.println(winner + " received the most votes!");
+
+        int[] sortedArray = {1,3,4,5,7,8,9,10,23,56,57};
+        System.out.println(binarySearch(sortedArray, 2));
     }
 
 
@@ -152,5 +155,29 @@ public class Library {
             }
         }
         return win;
+    }
+
+    public static int binarySearch (int[] array, int num){
+        int min = 0;
+        int max = array.length - 1;
+        int mid = Math.round((max-min)/2);
+        while (!(array[mid] == num)){
+            if ( num > array[max] || num < array[min]){
+                mid = -1;
+                break;
+            }
+            if ( num > array[mid]){
+                min = mid + 1;
+                mid = Math.round((max-min)/2) + min;
+            }
+            else if( num < array[mid]){
+                max = mid - 1;
+                mid = Math.round((max-min)/2) + min;
+            }
+            else{
+                break;
+            }
+        }
+        return mid;
     }
 }
