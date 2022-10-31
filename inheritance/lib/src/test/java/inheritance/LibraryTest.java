@@ -11,4 +11,32 @@ class LibraryTest {
         Library classUnderTest = new Library();
         assertTrue(classUnderTest.someLibraryMethod(), "someLibraryMethod should return 'true'");
     }
+
+    @Test void cogitoRestaurant(){
+        Restaurant leCinq = new Restaurant("le Cinq", 4);
+        assertNotNull(leCinq);
+    }
+
+    @Test void toStringPrint(){
+        Restaurant leCinq = new Restaurant("le Cinq", 4);
+        System.out.println(leCinq.toString());
+        assertEquals("le Cinq is rated 3.0 stars and has an expense of 4", leCinq.toString());
+    }
+
+    @Test void newReview(){
+        Review good = new Review("Great food and atmosphere", 4, "austin");
+        assertNotNull(good);
+    }
+
+    @Test void totalRatingOfRestaurant(){
+        Restaurant leCinq = new Restaurant("le Cinq", 4);
+        Review good = new Review("Great food and atmosphere", 5, "austin");
+        Review okay = new Review("The wine could have been better", 4, "austin");
+        Review bad = new Review("Too expensive", 2, "austin");
+        leCinq.addReview(good);
+        leCinq.addReview(okay);
+        leCinq.addReview(bad);
+        assertEquals((double) 11/3, leCinq.getRating());
+        System.out.println(leCinq.toString());
+    }
 }
