@@ -17,13 +17,13 @@ class LibraryTest {
         assertNotNull(leCinq);
     }
 
-    @Test void toStringPrint(){
+    @Test void toStringRestaurant(){
         Restaurant leCinq = new Restaurant("le Cinq", 4);
         System.out.println(leCinq.toString());
         assertEquals("le Cinq is rated 3.0 stars and has an expense of 4", leCinq.toString());
     }
 
-    @Test void newReview(){
+    @Test void cogitoReview(){
         Review good = new Review("Great food and atmosphere", 4, "austin");
         assertNotNull(good);
     }
@@ -38,5 +38,13 @@ class LibraryTest {
         leCinq.addReview(bad);
         assertEquals((double) 11/3, leCinq.getRating());
         System.out.println(leCinq.toString());
+    }
+
+    @Test void toStringReview(){
+        Review good = new Review("Great food and atmosphere", 5, "Austin");
+        assertEquals("""
+                User: Austin
+                Review: Great food and atmosphere
+                Number of stars: 5""", good.toString());
     }
 }

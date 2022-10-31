@@ -35,4 +35,9 @@ public class Review {
         this.author = author;
     }
 
+    @Override
+    public String toString(){
+        return "User: " + this.author + "\n" + "Review: " + this.body + "\n" + "Number of stars: " + this.rating;
+    }
+
 }
