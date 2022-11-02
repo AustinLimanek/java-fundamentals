@@ -77,9 +77,39 @@ class LibraryTest {
         amc.addMovie("Land Before Time");
         amc.addMovie("Belfast");
         amc.addMovie("Pokemon 2000");
+        amc.removeMovie("Belfast");
         assertEquals(3, amc.getMovies().size());
         System.out.println(amc.toString());
     }
 
+    @Test void repeatMovies(){
+        Theater amc = new Theater("AMC");
+        amc.addMovie("Land Before Time");
+        amc.addMovie("Belfast");
+        amc.addMovie("Pokemon 2000");
+        amc.addMovie("Belfast");
+        assertEquals(3, amc.getMovies().size());
+        System.out.println(amc.toString());
+    }
+
+    @Test void removingMovies(){
+        Theater amc = new Theater("AMC");
+        amc.addMovie("Land Before Time");
+        amc.addMovie("Belfast");
+        amc.addMovie("Pokemon 2000");
+        amc.removeMovie("Belfast");
+        assertEquals(2, amc.getMovies().size());
+        System.out.println(amc.toString());
+    }
+
+    @Test void removingNonExistantMovies(){
+        Theater amc = new Theater("AMC");
+        amc.addMovie("Land Before Time");
+        amc.addMovie("Belfast");
+        amc.addMovie("Pokemon 2000");
+        amc.removeMovie("Belfast 2");
+        assertEquals(3, amc.getMovies().size());
+        System.out.println(amc.toString());
+    }
 
 }
