@@ -44,17 +44,38 @@ Finds the min and max an `int[][]` and returns an `int[]` containing those value
 
 Finds the candidate with the greatest number of votes. Input `List<String>`, while the output is an `int`. The keys must be the appropriate case for the function to work appropriately. In addition, spelling is important.
 
-## inheritance: Class 06 Lab
+## inheritance: Class 06 Lab refactored for lab 07
 
-### Restaurant class
+### Abstract class Business
 
-This is a class that has four fields: String name, Double rating (default = 3.0), Integer expense, and ArrayList<Review> reviews. Initially the rating is set at 3.0, but once reviews are added to the reviews ArrayList the rating is calculated from those reviews.
+Three base fields of `String` name, `Integer` expense, and `ArrayList<Review>` reviews. There are two constructor functions that allow different initialization. The first is with both name and expense (Restaurant and Shop)the other is just with name (Theater). 
 
-- toString: Prints information about the restaurant such as name, rating, and expense.
 - addReview: Adds a Review instance to the reviews arraylist field.
+- getRating: calculates the rating of the location based on reviews. If not reviews then the default value is 3.0.
+- setRating: updates the rating.
+- getExpense: finds the relative cost of the establishment.
+- getName: returns the `String` value of the establishments name.
+
+### Restaurant class extends Business
+
+- toString: returns a `String` of information about the restaurant such as name, rating, and expense.
+
+### Shop class extends Business
+
+- toString: returns a `String` of information about the shop such as description, name, rating, and expense.
+- getDescription: returns a `String` with the description of the shop.
+
+### Theater class extends Business
+
+One additional field of `ArrayList<String>` movies that holds the current movies at a movie instance.
+
+- toString: Prints information about the theater such as the name and the number of movies currently playing.
+- addMovie: Takes in a string and adds it to the movies `ArrayList`
+- removeMovie: Input a string and removes the string from `ArrayList` movies, if it exists.
+- getMovies: returns the `ArrayList` movies
 
 ### Review class
 
-A class that has three fields: String body, int rating, and String author. 
+A class that has three fields: `String` body, `int` rating, `String` author, and `String` movie. There are two separate constructors in this class. One with the first three fields (Restaurant and Shops) and another with all four fields (Theater).
 
-- toString: Prints information about the content of the written review existing in the body field, the rating, and the author of the review.
+- toString: returns a `String` of information about the content of the written review existing in the body field, the rating, and the author of the review. If on the second constructor the `String` also includes the name of the movie.
