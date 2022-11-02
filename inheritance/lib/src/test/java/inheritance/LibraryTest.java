@@ -47,4 +47,39 @@ class LibraryTest {
                 Review: Great food and atmosphere
                 Number of stars: 5""", good.toString());
     }
+
+    @Test void totalRatingOfShop(){
+        Shop essenza = new Shop("Essenza", 4, "Obtain all of your favorite high-end jewelry and fragrances at a single location");
+        Review good = new Review("Great collection of products", 5, "austin");
+        Review okay = new Review("I didn't like the ring collection", 4, "austin");
+        Review bad = new Review("Could use a larger selection of soaps", 2, "austin");
+        essenza.addReview(good);
+        essenza.addReview(okay);
+        essenza.addReview(bad);
+        assertEquals((double) 11/3, essenza.getRating());
+        System.out.println(essenza.toString());
+    }
+
+    @Test void totalRatingOfTheater(){
+        Theater amc = new Theater("AMC");
+        Review good = new Review("Excellent story", 5, "austin", "Fight Club");
+        Review okay = new Review("Thrilling but needed deleted scenes", 4, "austin", "Fellowship of the Ring");
+        Review bad = new Review("Not to my liking", 2, "austin", "Clockwork Orange");
+        amc.addReview(good);
+        amc.addReview(okay);
+        amc.addReview(bad);
+        assertEquals((double) 11/3, amc.getRating());
+        System.out.println(amc.toString());
+    }
+
+    @Test void addingMoviesToTheater(){
+        Theater amc = new Theater("AMC");
+        amc.addMovie("Land Before Time");
+        amc.addMovie("Belfast");
+        amc.addMovie("Pokemon 2000");
+        assertEquals(3, amc.getMovies().size());
+        System.out.println(amc.toString());
+    }
+
+
 }

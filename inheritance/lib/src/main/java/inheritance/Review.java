@@ -4,6 +4,7 @@ public class Review {
     private String body;
     private int rating;
     private String author;
+    private String movie;
 
     public String getBody() {
         return body;
@@ -13,6 +14,13 @@ public class Review {
         this.body = body;
         this.rating = rating;
         this.author = author;
+    }
+
+    public Review(String body, int rating, String author, String movie) {
+        this.body = body;
+        this.rating = rating;
+        this.author = author;
+        this.movie = movie;
     }
 
     public void setBody(String body) {
@@ -37,7 +45,9 @@ public class Review {
 
     @Override
     public String toString(){
-        return "User: " + this.author + "\n" + "Review: " + this.body + "\n" + "Number of stars: " + this.rating;
+        String string = "User: " + this.author + "\n";
+        if ( this.movie != null) string += "Movie: " + this.movie + "\n";
+        return string + "Review: " + this.body + "\n" + "Number of stars: " + this.rating;
     }
 
 }
