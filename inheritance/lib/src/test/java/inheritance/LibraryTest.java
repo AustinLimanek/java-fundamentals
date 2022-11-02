@@ -78,7 +78,7 @@ class LibraryTest {
         amc.addMovie("Belfast");
         amc.addMovie("Pokemon 2000");
         amc.removeMovie("Belfast");
-        assertEquals(3, amc.getMovies().size());
+        assertEquals(2, amc.getMovies().size());
         System.out.println(amc.toString());
     }
 
